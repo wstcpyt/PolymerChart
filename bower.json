@@ -10,6 +10,8 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "0.8.0-rc.2"
+    "polymer": "0.8.0-rc.2",
+    "web-component-tester": "Polymer/web-component-tester#~2.2.6",
+    "test-fixture": "Polymer/test-fixture#~0.2.0"
   }
 }

@@ -15,21 +15,13 @@
         return assert(result === 500 * 0.8);
       });
     });
-    return describe('call function', function() {
+    return describe('draw', function() {
       beforeEach(function() {
         render();
-        return this.visualisation = document.querySelector('.d3linesvg');
+        this.visualisation = document.querySelector('.d3linesvg');
+        return this.d3line = new D3Line(this.visualisation);
       });
-      return it('draw called once', function() {
-        var d3line, mock, result;
-        d3line = new D3Line(this.visualisation);
-        mock = sinon.mock(d3line);
-        mock.expects("drawline").once().returns(3);
-        result = d3line.draw();
-        console.log(result);
-        mock.verify();
-        return mock.restore();
-      });
+      return it('draw called once', function() {});
     });
   });
 

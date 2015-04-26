@@ -10,10 +10,6 @@
       return this.drawline();
     };
 
-    D3Line.prototype.drawline = function() {
-      return 1;
-    };
-
     return D3Line;
 
   })();

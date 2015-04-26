@@ -10,20 +10,13 @@ describe("TEST D3line class", ->
       assert(result == 500*0.8)
     )
   )
-  describe('call function', ->
+  describe('draw', ->
     beforeEach(->
       render()
       this.visualisation = document.querySelector('.d3linesvg')
+      this.d3line = new D3Line(this.visualisation)
     )
     it('draw called once', ->
-      d3line = new D3Line(this.visualisation)
-      mock = sinon.mock(d3line)
-      mock.expects("drawline").once().returns(3)
-      result = d3line.draw()
-      console.log(result)
-      mock.verify()
-      mock.restore()
-
     )
   )
 )

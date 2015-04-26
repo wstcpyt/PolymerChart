@@ -3,5 +3,4 @@ class @D3Line
     this.width = this.visualisation.clientWidth*0.8
   draw: ->
     this.drawline()
-  drawline: ->
-    1
+
