@@ -6,6 +6,7 @@
     <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../bower_components/web-component-tester/browser.js"></script>
     <script src="../bower_components/test-fixture/test-fixture-mocha.js"></script>
+    <script src="../lib/sinon.js"></script>
     <link rel="import" href="../bower_components/test-fixture/test-fixture.html">
     <link rel="import" href="../d3-chart.html">
 </head>
@@ -24,8 +25,23 @@
                 d3chart = fixture('basic');
             });
             test('ready set visulization', function () {
-                assert.notEqual(d3chart.visualisation, undefined)
+                assert.notEqual(d3chart.visualisation, undefined);
             });
+            test('webcomponent ready event', function(){
+                var event = new CustomEvent("WebComponentsReady");
+                window.dispatchEvent(event);
+                assert.notEqual(d3chart.d3line.width, 1)
+            });
+            test('webcomponent ready event call d3line draw method', function(){
+                var d3linemock = new D3Line(d3chart.$.visualisation);
+                var mock = sinon.mock(d3linemock);
+                mock.expects("draw").once();
+                var event = new CustomEvent("WebComponentsReady");
+                window.dispatchEvent(event);
+                assert.notEqual(d3chart.d3line.width, 1);
+                mock.verify();
+                mock.restore();
+            })
         });
     });
 </script>

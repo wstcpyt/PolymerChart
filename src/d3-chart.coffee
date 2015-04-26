@@ -69,8 +69,12 @@ polymer = {
     }
   }
   ready: ->
+    _this = this
     this.visualisation = this.$.visualisation
-    this.d3line = new D3Line(visualisation)
+    window.addEventListener('WebComponentsReady', ->
+      _this.d3line = new D3Line(_this.visualisation)
+      _this.d3line.draw()
+    )
 }
 Polymer(polymer)
 

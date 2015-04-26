@@ -79,8 +79,13 @@
       }
     },
     ready: function() {
+      var _this;
+      _this = this;
       this.visualisation = this.$.visualisation;
-      return this.d3line = new D3Line(visualisation);
+      return window.addEventListener('WebComponentsReady', function() {
+        _this.d3line = new D3Line(_this.visualisation);
+        return _this.d3line.draw();
+      });
     }
   };
 

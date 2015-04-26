@@ -3,11 +3,11 @@
   this.D3Line = (function() {
     function D3Line(visualisation) {
       this.visualisation = visualisation;
-      this.width = this.visualisation.clientWidth * 0.8;
+      this.widths = this.visualisation.clientWidth * 0.8;
     }
 
     D3Line.prototype.draw = function() {
-      return this.drawline();
+      return 1;
     };
 
     return D3Line;
