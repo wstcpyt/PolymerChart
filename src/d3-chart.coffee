@@ -71,14 +71,14 @@ polymer = {
   ready: ->
     _this = this
     this.d3line = new D3Line(this)
-    this.d3line._init_variable()
-    this.d3line.draw()
     d3.select(window).on('resize', ->
-      _this.d3line.width = _this.$.visualisation.clientWidth
+      _this.d3line.width = _this.$.visualisation.clientWidth*0.8
       _this.d3line._setresponsive()
     )
+    window.addEventListener('WebComponentsReady', ->
+      _this.d3line._init_variable()
+      _this.d3line.draw()
+    )
 }
-
-
-
 Polymer(polymer)
+
