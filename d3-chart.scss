@@ -1,0 +1,35 @@
+:host {
+  display: block;
+  font-size: 14px;
+  font-family: 'RobotoDraft', Helvetica, Arial, sans-serif;
+}
+
+#visualisation{
+  width: 80%;
+  height: 500px;
+}
+
+.axis{
+  path{
+    fill: none;
+    stroke: #777;
+    shape-rendering: crispEdges;
+  }
+}
+
+.axis{
+  text{
+    font-family: Lato;
+    font-size: 13px;
+  }
+}
+
+.focus circle {
+  fill: none;
+  stroke: steelblue;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
