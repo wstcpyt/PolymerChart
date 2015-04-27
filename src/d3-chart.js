@@ -5,6 +5,9 @@
   polymer = {
     is: 'd3-chart',
     properties: {
+      urlstring: {
+        type: String
+      },
       zerodata: {
         type: Array,
         value: [
@@ -80,6 +83,7 @@
     },
     ready: function() {
       var _this;
+      console.log(this.urlstring);
       _this = this;
       this.visualization = this.$.visualization;
       window.addEventListener('WebComponentsReady', function() {
