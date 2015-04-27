@@ -81,10 +81,14 @@
     ready: function() {
       var _this;
       _this = this;
-      this.visualisation = this.$.visualisation;
-      return window.addEventListener('WebComponentsReady', function() {
-        _this.d3line = new D3Line(_this.visualisation);
+      this.visualization = this.$.visualization;
+      window.addEventListener('WebComponentsReady', function() {
+        _this.d3line = new D3Line(_this.visualization, _this.data1, _this.data2);
         return _this.d3line.draw();
+      });
+      return d3.select(window).on('resize', function() {
+        _this.d3line.width = _this.visualization.clientWidth;
+        return _this.d3line._setresponsive();
       });
     }
   };

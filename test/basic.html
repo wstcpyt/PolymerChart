@@ -17,33 +17,6 @@
     </template>
 </test-fixture>
 
-<script>
-    suite('basic', function () {
-        var d3chart;
-        suite('ready', function () {
-            setup(function () {
-                d3chart = fixture('basic');
-            });
-            test('ready set visulization', function () {
-                assert.notEqual(d3chart.visualisation, undefined);
-            });
-            test('webcomponent ready event', function(){
-                var event = new CustomEvent("WebComponentsReady");
-                window.dispatchEvent(event);
-                assert.notEqual(d3chart.d3line.width, 1)
-            });
-            test('webcomponent ready event call d3line draw method', function(){
-                var d3linemock = new D3Line(d3chart.$.visualisation);
-                var mock = sinon.mock(d3linemock);
-                mock.expects("draw").once();
-                var event = new CustomEvent("WebComponentsReady");
-                window.dispatchEvent(event);
-                assert.notEqual(d3chart.d3line.width, 1);
-                mock.verify();
-                mock.restore();
-            })
-        });
-    });
-</script>
+<script src="basictest.js"></script>
 </body>
 </html>
