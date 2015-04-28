@@ -29,8 +29,8 @@
     };
 
     D3Line.prototype._set_scale = function() {
-      this.xScale = d3.scale.linear().range([this.margins.left, this.width - this.margins.right]).domain([2000, 2010]);
-      return this.yScale = d3.scale.linear().range([this.height - this.margins.bottom, this.margins.top]).domain([134, 215]);
+      this.xScale = d3.scale.linear().range([this.margins.left, this.width - this.margins.right]).domain([0.2066, 12.4000]);
+      return this.yScale = d3.scale.linear().range([this.height - this.margins.bottom, this.margins.top]).domain([0, 6]);
     };
 
     D3Line.prototype._set_axis = function() {

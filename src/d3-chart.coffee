@@ -1,7 +1,7 @@
 polymer = {
   is: 'd3-chart'
   properties: {
-    urlstring:{
+    jsonstring:{
       type: String
     }
     zerodata: {
@@ -72,11 +72,12 @@ polymer = {
     }
   }
   ready: ->
-    console.log(this.urlstring)
+    obj = $.parseJSON(this.jsonstring)["DATA"]["0"]["data"]
+    jsondata = gendata(obj)
     _this = this
     this.visualization = this.$.visualization
     window.addEventListener('WebComponentsReady', ->
-      _this.d3line = new D3Line(_this.visualization, _this.data1, _this.data2)
+      _this.d3line = new D3Line(_this.visualization, jsondata, jsondata)
       _this.d3line.draw()
     )
     d3.select(window).on('resize', ->
@@ -85,4 +86,18 @@ polymer = {
     )
 }
 Polymer(polymer)
+
+gendata = (obj)->
+  objrows = obj.split("\n")
+  i=0
+  jsondata = []
+  for obj in objrows
+    if obj !=""
+      objcol = obj.split(' ')
+      jsondata[i] = {
+        'year': objcol[0],
+        'sale': objcol[1]
+      }
+    i = i+1
+  return jsondata
 

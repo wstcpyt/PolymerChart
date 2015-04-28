@@ -22,8 +22,8 @@ class @D3Line
 
 
   _set_scale: ->
-    this.xScale = d3.scale.linear().range([this.margins.left, this.width - this.margins.right]).domain([2000,2010])
-    this.yScale = d3.scale.linear().range([this.height - this.margins.bottom, this.margins.top]).domain([134,215])
+    this.xScale = d3.scale.linear().range([this.margins.left, this.width - this.margins.right]).domain([0.2066,12.4000])
+    this.yScale = d3.scale.linear().range([this.height - this.margins.bottom, this.margins.top]).domain([0,6])
 
   _set_axis: ->
     this.xaxis = this.visualization.append("svg:g")
